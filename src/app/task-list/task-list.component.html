@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Tasks Name</th>
+  </tr>
+  <tr
+    *ngFor="let data of tasksList; let i = index"
+    [class.stroke]="data.completed"
+  >
+    <td ng-if="$even" style="background-color:#f1f1f1">
+      {{ data.id }}
+    </td>
+    <td ng-if="$even">
+      <input
+        type="checkbox"
+        [(ngModel)]="data.completed"
+        #myCheckbox
+        (change)="doSomething($event)"
+      />{{ data.title }}
+    </td>
+  </tr>
+</table>
